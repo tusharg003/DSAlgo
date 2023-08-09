@@ -178,6 +178,26 @@ void printLevelWise(BinaryTreeNode<int> *root)
 			cout << ",R:-1";
 		cout << endl;
 	}
+	/*
+			Enter root data
+			1
+			Enter left child of 1
+			2
+			Enter right child of 1
+			3
+			Enter left child of 2
+			-1
+			Enter right child of 2
+			-1
+			Enter left child of 3
+			-1
+			Enter right child of 3
+			-1
+			
+			1:L:2,R:3
+			2:L:-1,R:-1
+			3:L:-1,R:-1
+	*/
 }
 int main()
 {
