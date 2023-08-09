@@ -101,53 +101,83 @@ BinaryTreeNode<int> *takeInputLevelWise()
 	}
 	return root;
 	/*
-	Enter data
-1
-Enter data
-2
-Enter data
-3
-Enter data
--1
-Enter data
--1
-Enter data
--1
-Enter data
--1
-1:L2
-2:L3
-3:
-PS C:\Users\Tushar Gupta\Desktop\DSA> .\Binary_Tree\BinaryTreeUse.exe
-Enter root data
-1
-Enter left child of 1
-2
-Enter right child of 1
-3
-Enter left child of 2
-4
-Enter right child of 2
-5
-Enter left child of 3
--1
-Enter right child of 3
--1
-Enter left child of 4
--1
-Enter right child of 4
--1
-Enter left child of 5
--1
-Enter right child of 5
--1
+					Enter data
+				1
+				Enter data
+				2
+				Enter data
+				3
+				Enter data
+				-1
+				Enter data
+				-1
+				Enter data
+				-1
+				Enter data
+				-1
+				1:L2
+				2:L3
+				3:
+				PS C:\Users\Tushar Gupta\Desktop\DSA> .\Binary_Tree\BinaryTreeUse.exe
+				Enter root data
+				1
+				Enter left child of 1
+				2
+				Enter right child of 1
+				3
+				Enter left child of 2
+				4
+				Enter right child of 2
+				5
+				Enter left child of 3
+				-1
+				Enter right child of 3
+				-1
+				Enter left child of 4
+				-1
+				Enter right child of 4
+				-1
+				Enter left child of 5
+				-1
+				Enter right child of 5
+				-1
 
-1:L2R3
-2:L4R5
-4:
-5:
-3:
-	*/
+				1:L2R3
+				2:L4R5
+				4:
+				5:
+				3:
+					*/
+}
+
+void printLevelWise(BinaryTreeNode<int> *root)
+{
+	// Write your code here
+	if (root == NULL)
+		return;
+	queue<BinaryTreeNode<int> *> pendingChild;
+	pendingChild.push(root);
+	while (pendingChild.size() != 0)
+	{
+		BinaryTreeNode<int> *front = pendingChild.front();
+		cout << front->data << ":";
+		pendingChild.pop();
+		if (front->left != NULL)
+		{
+			cout << "L:" << front->left->data;
+			pendingChild.push(front->left);
+		}
+		else
+			cout << "L:-1";
+		if (front->right != NULL)
+		{
+			cout << ",R:" << front->right->data;
+			pendingChild.push(front->right);
+		}
+		else
+			cout << ",R:-1";
+		cout << endl;
+	}
 }
 int main()
 {
@@ -158,6 +188,6 @@ int main()
 	root->right = node2;
 	*/
 	BinaryTreeNode<int> *root = takeInputLevelWise();
-	printTree(root);
+	printLevelWise(root);
 	delete root;
 }
