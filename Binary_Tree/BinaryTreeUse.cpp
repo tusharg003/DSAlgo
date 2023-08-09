@@ -39,8 +39,28 @@ BinaryTreeNode<int> *takeInput()
 	root->left = leftChild;
 	root->right = rightChild;
 	return root;
-}
 
+	/*
+		Enter data
+		1
+		Enter data
+		2
+		Enter data
+		-1
+		Enter data
+		-1
+		Enter data
+		3
+		Enter data
+		-1
+		Enter data
+		-1
+
+		1:L2R3
+		2:
+		3:
+	*/
+}
 int main()
 {
 	/*BinaryTreeNode<int>* root = new BinaryTreeNode<int>(1);
