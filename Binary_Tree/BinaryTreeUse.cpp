@@ -100,6 +100,54 @@ BinaryTreeNode<int> *takeInputLevelWise()
 		}
 	}
 	return root;
+	/*
+	Enter data
+1
+Enter data
+2
+Enter data
+3
+Enter data
+-1
+Enter data
+-1
+Enter data
+-1
+Enter data
+-1
+1:L2
+2:L3
+3:
+PS C:\Users\Tushar Gupta\Desktop\DSA> .\Binary_Tree\BinaryTreeUse.exe
+Enter root data
+1
+Enter left child of 1
+2
+Enter right child of 1
+3
+Enter left child of 2
+4
+Enter right child of 2
+5
+Enter left child of 3
+-1
+Enter right child of 3
+-1
+Enter left child of 4
+-1
+Enter right child of 4
+-1
+Enter left child of 5
+-1
+Enter right child of 5
+-1
+
+1:L2R3
+2:L4R5
+4:
+5:
+3:
+	*/
 }
 int main()
 {
@@ -109,7 +157,7 @@ int main()
 	root->left = node1;
 	root->right = node2;
 	*/
-	BinaryTreeNode<int> *root = takeInput();
+	BinaryTreeNode<int> *root = takeInputLevelWise();
 	printTree(root);
 	delete root;
 }
