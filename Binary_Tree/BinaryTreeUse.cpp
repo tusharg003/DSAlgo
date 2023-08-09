@@ -193,12 +193,90 @@ void printLevelWise(BinaryTreeNode<int> *root)
 			-1
 			Enter right child of 3
 			-1
-			
+
 			1:L:2,R:3
 			2:L:-1,R:-1
 			3:L:-1,R:-1
 	*/
 }
+
+//----------------------------Counting number of nodes-----------------------
+
+int numNodes(BinaryTreeNode<int> *root)
+{
+	if (root == NULL)
+	{
+		return 0;
+	}
+	return 1 + numNodes(root->left) + numNodes(root->right);
+}
+//------------------find a node in binary tree------------------------------
+/*
+   Time complexity : O(N)
+   Space complexity : O(H)
+
+   where N is the number of nodes in the tree
+   and H is the height of the tree.
+
+   H is equal to log(N) for a balanced tree
+*/
+
+bool isNodePresent(BinaryTreeNode<int> *root, int x)
+{
+	if (root == NULL)
+	{
+		return false;
+	}
+	else if (root->data == x)
+	{
+		return true;
+	}
+
+	return isNodePresent(root->left, x) || isNodePresent(root->right, x);
+}
+
+// --------------------------------Height of a binary tree--------------------------------
+/*
+	Time complexity: O(N)
+	Space complexity: O(H)
+
+	where N is the number of nodes in the input tree
+	and H is the height of the input tree
+*/
+int height(BinaryTreeNode<int> *root)
+{
+	if (root == NULL)
+	{
+		return 0;
+	}
+
+	return max(height(root->left), height(root->right)) + 1;
+}
+
+//--------------------------------------Mirror the Binary Tree----------------------------------------
+/*
+	Time complexity: O(N)
+	Space complexity: O(H)
+
+	where N is the number of nodes in the input tree
+	and H is the height of the input tree
+*/
+
+void mirrorBinaryTree(BinaryTreeNode<int> *root)
+{
+	if (root == NULL)
+	{
+		return;
+	}
+
+	mirrorBinaryTree(root->left);
+	mirrorBinaryTree(root->right);
+
+	BinaryTreeNode<int> *templeft = root->left;
+	root->left = root->right;
+	root->right = templeft;
+}
+
 int main()
 {
 	/*BinaryTreeNode<int>* root = new BinaryTreeNode<int>(1);
